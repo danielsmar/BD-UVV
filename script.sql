@@ -5,10 +5,10 @@ CREATE TABLE elmasri.funcionario (
                 nome_meio CHAR(1),
                 ultimo_nome VARCHAR(15) NOT NULL,
                 data_nascimento DATE,
-                endereco VARCHAR(30),
+                endereco VARCHAR(60),
                 sexo CHAR(1),
                 salario NUMERIC(10,2),
-                cpf_supervisor CHAR(11) NOT NULL,
+                cpf_supervisor CHAR(11),
                 numero_departamento INTEGER NOT NULL,
                 CONSTRAINT funcionario_pk PRIMARY KEY (cpf)
 );
@@ -69,41 +69,64 @@ CREATE TABLE elmasri.localizacoes_departamento (
                 CONSTRAINT localizacoes_departamento_pk PRIMARY KEY (numero_departamento, local)
 );
 COMMENT ON TABLE elmasri.localizacoes_departamento IS 'criação da tabela para armazenar a localização dos departamentos';
--- asdsad
-/*ajfaskfd
-asdas
-*/
+
+
 ALTER TABLE elmasri.departamento ADD CONSTRAINT funcionario_departamento_fk
 FOREIGN KEY (cpf_gerente)
-REFERENCES elmasri.funcionario (cpf);
+REFERENCES elmasri.funcionario (cpf)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE elmasri.departamento ADD CONSTRAINT funcionario_departamento_fk1
+FOREIGN KEY (cpf_gerente)
+REFERENCES elmasri.funcionario (cpf)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
 
 ALTER TABLE elmasri.dependente ADD CONSTRAINT funcionario_dependente_fk
 FOREIGN KEY (cpf_funcionario)
-REFERENCES elmasri.funcionario (cpf);
-
-ALTER TABLE elmasri.funcionario ADD CONSTRAINT funcionario_funcionario_fk
-FOREIGN KEY (cpf_supervisor)
-REFERENCES elmasri.funcionario (cpf);
+REFERENCES elmasri.funcionario (cpf)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
 
 ALTER TABLE elmasri.trabalha_em ADD CONSTRAINT funcionario_trabalha_em_fk
 FOREIGN KEY (cpf_funcionario)
-REFERENCES elmasri.funcionario (cpf);
+REFERENCES elmasri.funcionario (cpf)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE elmasri.funcionario ADD CONSTRAINT funcionario_funcionario_fk
+FOREIGN KEY (cpf_supervisor)
+REFERENCES elmasri.funcionario (cpf)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
 
 ALTER TABLE elmasri.localizacoes_departamento ADD CONSTRAINT departamento_localizacoes_departamento_fk
 FOREIGN KEY (numero_departamento)
-REFERENCES elmasri.departamento (numero_departamento);
+REFERENCES elmasri.departamento (numero_departamento)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
 
 ALTER TABLE elmasri.projeto ADD CONSTRAINT departamento_projeto_fk
 FOREIGN KEY (numero_departamento)
-REFERENCES elmasri.departamento (numero_departamento);
+REFERENCES elmasri.departamento (numero_departamento)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
 
 ALTER TABLE elmasri.trabalha_em ADD CONSTRAINT projeto_trabalha_em_fk
 FOREIGN KEY (numero_projeto)
-REFERENCES elmasri.projeto (numero_projeto);
-
+REFERENCES elmasri.projeto (numero_projeto)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
 
 INSERT INTO elmasri.funcionario(
-	cpf, primeiro_nome, nome_meio, ultimo_nome, data_nascimento, endereco, sexo, salario, cpf_supervisor, numero_departamento)
-	VALUES (17014501780,'daniel', 'v', 'marculano', '2000-02-20', 'RuaMarajo562', 'M', 5000, 17014501780, 123);
-
-select * from elmasri.funcionario
+	cpf, primeiro_nome, nome_meio, ultimo_nome, data_nascimento, endereco, sexo, salario, numero_departamento)
+	VALUES (88866555576,'Jorge', 'E', 'Brito', '1937-11-10', 'Rua do Horto, 35, São Paulo, SP', 'M', 55000, 1);
