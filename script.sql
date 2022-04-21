@@ -137,4 +137,18 @@ INSERT INTO elmasri.funcionario(
            (45345345376,'Joice','A', 'Leite', '1972/07/31','Av.Lucas Obes 74, São Paulo, SP', 'F', 25000, 33344555587, 5),
            (66688444476,'Ronaldo','K', 'Lima', '1962/09/15','Rua Rebouças, 65, Piracicaba, SP', 'M', 38000, 33344555587, 5),
            (12345678966,'João','B', 'Silva', '1965/01/09','Rua das Flores, 751,São Paulo, SP', 'M', 30000, 33344555587, 5);
+
+INSERT INTO elmasri.departamento(
+	numero_departamento, nome_departamento, cpf_gerente, data_inicio_gerente)
+	VALUES (5,'Pesquisa',33344555587 , '1988/05/22'),
+           (4,'Administração',98765432168 , '1995/01/01'),
+           (1,'Matriz',88866555576, '1981/06/19');
+		   
+INSERT INTO elmasri.localizacoes_departamento(
+	numero_departamento, local)
+	VALUES (1, 'São Paulo'),
+           (4, 'Mauá'),
+           (5, 'Santo André'),
+           (5, 'Itu'),
+           (5, 'São Paulo');
 		   
