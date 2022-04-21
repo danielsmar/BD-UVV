@@ -152,3 +152,11 @@ INSERT INTO elmasri.localizacoes_departamento(
            (5, 'Itu'),
            (5, 'São Paulo');
 		   
+INSERT INTO elmasri.projeto(
+	numero_projeto, nome_projeto, local_projeto, numero_departamento)
+	VALUES (1, 'ProdutoX', 'Santo André', 5),
+           (2, 'ProdutoY', 'Itu', 5),
+           (3, 'ProdutoZ', 'São Paulo', 5),
+           (10, 'Informatização', 'Mauá', 4),
+           (20, 'Reorganização', 'São Paulo', 1),
+           (30, 'Novosbenefícios', 'Mauá', 4);
