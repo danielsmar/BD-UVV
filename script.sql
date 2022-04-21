@@ -20,7 +20,7 @@ CREATE DATABASE uvv
 
 
 
---OUTRO ARQUIVO
+
 
 \c uvv
 --Criação d schema elmasri e autorização para o usuário criado anteriormente.
