@@ -1,21 +1,34 @@
-CREATE USER daniel with password
-    CREATEDB;
 
-ALTER USER daniel PASSWORD null
+BEGIN;
+-- Criação do usuário para administrar o BD.
+CREATE USER danielm WITH PASSWORD '12345' CREATEDB;
+
+ALTER USER danielm PASSWORD null;
+COMMIT;
+
+-- Criação do Banco de dados
 
 CREATE DATABASE uvv
-    with owner daniel
-    encoding 'utf8'
-    template template0
-    LC_COLLATE 'pt_BR.UTF-8'
-    LC_CTYPE 'pt_BR.UTF-8'
-    ALLOW_CONNECTIONS true;
+    WITH 
+    OWNER = danielm
+    TEMPLATE = template0
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'en_US.UTF-8'
+    LC_CTYPE = 'en_US.UTF-8'
+    CONNECTION LIMIT = -1;
 
-CREATE SCHEMA elmasri  AUTHORIZATION daniel;
 
+
+
+--OUTRO ARQUIVO
+
+\c uvv
+--Criação d schema elmasri e autorização para o usuário criado anteriormente.
+CREATE SCHEMA elmasri  AUTHORIZATION danielm;
+
+--Tornando o Schema elmasri como padrão.
 SET SEARCH_PATH TO elmasri, "\$user", public;
 select current_schema();
-
 
 CREATE TABLE elmasri.funcionario (
                 cpf CHAR(11) NOT NULL,
