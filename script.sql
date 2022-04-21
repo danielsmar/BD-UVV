@@ -160,3 +160,13 @@ INSERT INTO elmasri.projeto(
            (10, 'Informatização', 'Mauá', 4),
            (20, 'Reorganização', 'São Paulo', 1),
            (30, 'Novosbenefícios', 'Mauá', 4);
+
+INSERT INTO elmasri.dependente(
+	cpf_funcionario, nome_dependente, sexo, data_nascimento, parentesco)
+	VALUES (33344555587, 'Alicia', 'F', '1986/04/05', 'Filha'),
+           (33344555587, 'Tiago', 'M', '1983/10/25', 'Filho'),
+           (33344555587, 'Janaina', 'F', '1958/05/03', 'Esposa'),
+           (98765432168, 'Antonio', 'M', '1942/02/28', 'Marido'),
+           (12345678966, 'Michael', 'M', '1988/01/04', 'Filho'),
+           (12345678966, 'Alicia', 'F', '1988/12/30', 'Filha'),
+           (12345678966, 'Elizabeth', 'F', '1967/05/05', 'Esposa');
