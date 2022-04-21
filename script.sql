@@ -1,3 +1,21 @@
+CREATE USER daniel with password
+    CREATEDB;
+
+ALTER USER daniel PASSWORD null
+
+CREATE DATABASE uvv
+    with owner daniel
+    encoding 'utf8'
+    template template0
+    LC_COLLATE 'pt_BR.UTF-8'
+    LC_CTYPE 'pt_BR.UTF-8'
+    ALLOW_CONNECTIONS true;
+
+CREATE SCHEMA elmasri  AUTHORIZATION daniel;
+
+SET SEARCH_PATH TO elmasri, "\$user", public;
+select current_schema();
+
 
 CREATE TABLE elmasri.funcionario (
                 cpf CHAR(11) NOT NULL,
@@ -6,9 +24,9 @@ CREATE TABLE elmasri.funcionario (
                 ultimo_nome VARCHAR(15) NOT NULL,
                 data_nascimento DATE,
                 endereco VARCHAR(60),
-                sexo CHAR(1),
-                salario NUMERIC(10,2),
-                cpf_supervisor CHAR(11),
+                sexo CHAR(1) CHECK(sexo= 'M' OR sexo= 'F'),
+                salario NUMERIC(10,2) CHECK(salario>0),
+                cpf_supervisor CHAR(11) CHECK(cpf_supervisor != cpf),
                 numero_departamento INTEGER NOT NULL,
                 CONSTRAINT funcionario_pk PRIMARY KEY (cpf)
 );
@@ -18,7 +36,7 @@ COMMENT ON TABLE elmasri.funcionario IS 'criação da tabela para armazenar os f
 CREATE TABLE elmasri.dependente (
                 cpf_funcionario CHAR(11) NOT NULL,
                 nome_dependente VARCHAR(15) NOT NULL,
-                sexo CHAR(1),
+                sexo CHAR(1) CHECK(sexo= 'M' OR sexo= 'F'),
                 data_nascimento DATE,
                 parentesco VARCHAR(15),
                 CONSTRAINT dependente_pk PRIMARY KEY (cpf_funcionario, nome_dependente)
@@ -27,7 +45,7 @@ COMMENT ON TABLE elmasri.dependente IS 'criação da tabela para armazenar os de
 
 
 CREATE TABLE elmasri.departamento (
-                numero_departamento INTEGER NOT NULL,
+                numero_departamento INTEGER NOT NULL CHECK (numero_departamento>=0),
                 nome_departamento VARCHAR(15) NOT NULL,
                 cpf_gerente CHAR(11) NOT NULL,
                 data_inicio_gerente DATE,
@@ -41,10 +59,10 @@ CREATE UNIQUE INDEX departamento_ak
  ( nome_departamento );
 
 CREATE TABLE elmasri.projeto (
-                numero_projeto INTEGER NOT NULL,
+                numero_projeto INTEGER NOT NULL CHECK (numero_projeto>=0),
                 nome_projeto VARCHAR(15) NOT NULL,
                 local_projeto VARCHAR(15),
-                numero_departamento INTEGER NOT NULL,
+                numero_departamento INTEGER NOT NULL CHECK(numero_departamento>=0),
                 CONSTRAINT projeto_pk PRIMARY KEY (numero_projeto)
 );
 COMMENT ON TABLE elmasri.projeto IS 'criação da tabela para armazenar os projetos';
@@ -56,15 +74,15 @@ CREATE UNIQUE INDEX projeto_ak
 
 CREATE TABLE elmasri.trabalha_em (
                 cpf_funcionario CHAR(11) NOT NULL,
-                numero_projeto INTEGER NOT NULL,
-                horas NUMERIC(3,1),
+                numero_projeto INTEGER NOT NULL CHECK (numero_projeto>=0),
+                horas NUMERIC(3,1) CHECK(horas>=0),
                 CONSTRAINT trabalha_em_pk PRIMARY KEY (cpf_funcionario, numero_projeto)
 );
 COMMENT ON TABLE elmasri.trabalha_em IS 'criação da tabela de local de trabalho';
 
 
 CREATE TABLE elmasri.localizacoes_departamento (
-                numero_departamento INTEGER NOT NULL,
+                numero_departamento INTEGER NOT NULL CHECK (numero_departamento>=0),
                 local VARCHAR(15) NOT NULL,
                 CONSTRAINT localizacoes_departamento_pk PRIMARY KEY (numero_departamento, local)
 );
