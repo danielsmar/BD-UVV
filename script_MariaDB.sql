@@ -1,3 +1,9 @@
+create user danielm identified by '123456';
+
+create database uvv;
+
+grant all privileges on uvv.* to danielm; 
+
 CREATE TABLE uvv.funcionario (
                 cpf CHAR(11) NOT NULL,
                 primeiro_nome VARCHAR(15) NOT NULL,
