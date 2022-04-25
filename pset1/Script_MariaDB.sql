@@ -1,16 +1,19 @@
---Início do Script
+--Primeira Parte do Script
 
 --Criando usuário do SGBD.
 create user danielm identified by '123456';
 
 --Criando Banco de Dados UVV.
-create database uvv;
+CREATE DATABASE uvv CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 --Concedendo todos privilégios ao usuário criado.
 grant all privileges on uvv.* to danielm; 
 
 -- Entra com o usuário criado no SGBD.
 SYSTEM mysql -u danielm -p;
+
+
+--SEGUNDA PARTE DO SCRIPT
 
 -- Criando Tabela Funcionário.
 CREATE TABLE uvv.funcionario (
@@ -20,9 +23,9 @@ CREATE TABLE uvv.funcionario (
                 ultimo_nome VARCHAR(15) NOT NULL     COMMENT 'Ultimo Nome do Funcionário',
                 data_nascimento DATE COMMENT 'Data Nascimento do Funcionário',
                 endereco VARCHAR(60) COMMENT 'Endereco do Funcionário',
-                sexo CHAR(1) CHECK(sexo= 'M' OR sexo= 'F') COMMENT 'Sexo do Funcionário',
-                salario NUMERIC(10,2) CHECK(salario>0) COMMENT 'Salário do Funcionário',
-                cpf_supervisor CHAR(11) CHECK(cpf_supervisor != cpf) COMMENT 'CPF do Supervisor do Funcionário',
+                sexo CHAR(1) COMMENT 'Sexo do Funcionário'CHECK(sexo= 'M' OR sexo= 'F'),
+                salario NUMERIC(10,2)  COMMENT 'Salário do Funcionário' CHECK(salario>0),
+                cpf_supervisor CHAR(11)  COMMENT 'CPF do Supervisor do Funcionário' CHECK(cpf_supervisor != cpf),
                 numero_departamento INTEGER NOT NULL COMMENT 'Numero do Departamento do Funcionário',
                 CONSTRAINT cpf_pk PRIMARY KEY (cpf) 
                 
@@ -35,7 +38,7 @@ ALTER TABLE uvv.funcionario COMMENT 'Tabela com informações dos funcionários.
 CREATE TABLE uvv.dependente (
                 cpf_funcionario CHAR(11) NOT NULL     COMMENT 'CPF do funcionário',
                 nome_dependente VARCHAR(15) NOT NULL COMMENT 'Nome do Dependente',
-                sexo CHAR(1) CHECK(sexo= 'M' OR sexo= 'F') COMMENT 'Sexo do dependente',
+                sexo CHAR(1) COMMENT 'Sexo do dependente' CHECK(sexo= 'M' OR sexo= 'F') ,
                 data_nascimento DATE COMMENT 'Data de nascimento do dependente',
                 parentesco VARCHAR(15) COMMENT 'Parentesco do dependente',
                 CONSTRAINT dependente_pk PRIMARY KEY (cpf_funcionario, nome_dependente)
@@ -46,7 +49,7 @@ ALTER TABLE uvv.dependente COMMENT 'Tabela com informações dos dependentes.';
 
 -- Criando Tabela Departamento.
 CREATE TABLE uvv.departamento (
-                numero_departamento INTEGER NOT NULL CHECK (numero_departamento>=0) COMMENT 'Número do Departamento',
+                numero_departamento INTEGER NOT NULL COMMENT 'Número do Departamento' CHECK (numero_departamento>=0) ,
                 nome_departamento VARCHAR(15) NOT NULL COMMENT 'Nome do Departamento',
                 cpf_gerente CHAR(11) NOT NULL     COMMENT 'CPF do Gerente do Departamento',
                 data_inicio_gerente DATE COMMENT 'Data inicio do Gerente',
@@ -63,10 +66,10 @@ CREATE UNIQUE INDEX departamento_ak
 
 -- Criando Tabela Projeto.
 CREATE TABLE uvv.projeto (
-                numero_projeto INTEGER NOT NULL CHECK (numero_projeto>=0) COMMENT 'Número do projeto',
+                numero_projeto INTEGER NOT NULL COMMENT 'Número do projeto' CHECK (numero_projeto>=0) ,
                 nome_projeto VARCHAR(15) NOT NULL COMMENT 'Nome do projeto',
                 local_projeto VARCHAR(15) COMMENT 'Local do projeto',
-                numero_departamento INTEGER NOT NULL CHECK(numero_departamento>=0) COMMENT 'Numero do departamento',
+                numero_departamento INTEGER NOT NULL COMMENT 'Numero do departamento' CHECK(numero_departamento>=0),
                 CONSTRAINT projeto_pk PRIMARY KEY (numero_projeto)
 );
 
@@ -81,8 +84,8 @@ CREATE UNIQUE INDEX projeto_ak
 -- Criando Tabela Trabalha_em.
 CREATE TABLE uvv.trabalha_em (
                 cpf_funcionario CHAR(11) NOT NULL     COMMENT 'CPF do funcionário',
-                numero_projeto INTEGER NOT NULL CHECK (numero_projeto>=0) COMMENT 'Número de projeto',
-                horas NUMERIC(3,1) CHECK(horas>=0) COMMENT 'Horas de Trabalho',
+                numero_projeto INTEGER NOT NULL COMMENT 'Número de projeto' CHECK (numero_projeto>=0) ,
+                horas NUMERIC(3,1) COMMENT 'Horas de Trabalho' CHECK(horas>=0) ,
                 CONSTRAINT trabalha_em_pk PRIMARY KEY (cpf_funcionario, numero_projeto)
 );
 
@@ -91,7 +94,7 @@ ALTER TABLE uvv.trabalha_em COMMENT 'Tabela com informações dos horarios de tr
 
 -- Criando Tabela Localizacoes_departamento.
 CREATE TABLE uvv.localizacoes_departamento (
-                numero_departamento INTEGER NOT NULL CHECK (numero_departamento>=0) COMMENT 'Número do Departamento',
+                numero_departamento INTEGER NOT NULL COMMENT 'Número do Departamento' CHECK (numero_departamento>=0) ,
                 local VARCHAR(15) NOT NULL COMMENT 'Local do Departamento',
                 CONSTRAINT localizacoes_departamento_pk PRIMARY KEY (numero_departamento, local)
 );
