@@ -6,8 +6,6 @@ Este repositório contém projetos da disciplina de Banco de Dados I feito duran
 - SQL;
 - MySQL / MariaDB;
 - PostgreSQL;
-- Oracle Database;
-- MS SQL Server.
 
 **Aluno:** Daniel Valadares Marculano
 
