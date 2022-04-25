@@ -9,3 +9,10 @@ Este repositório contém projetos da disciplina de Banco de Dados I feito duran
 - Oracle Database;
 - MS SQL Server.
 
+**Aluno:** Daniel Valadares Marculano
+
+**Turma:** CC2M
+
+**Professor:** Abrantes Araújo Silva Filho
+
+**Disciplina:** Design e Desenvolvimento de Banco de Dados
