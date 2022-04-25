@@ -1,4 +1,4 @@
-
+### Passo a Passo de como execultar o Script do MariaDB
 su -
 senha:computacao@raiz
 
