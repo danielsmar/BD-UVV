@@ -9,4 +9,3 @@ Este repositório contém projetos da disciplina de Banco de Dados I feito duran
 - Oracle Database;
 - MS SQL Server.
 
-teste
