@@ -1,7 +1,7 @@
 
 BEGIN;
 -- Criação do usuário para administrar o BD.
-CREATE USER danielm WITH PASSWORD '12345' CREATEDB;
+CREATE USER danielm WITH PASSWORD '123456' CREATEDB;
 
 ALTER USER danielm PASSWORD null;
 COMMIT;
@@ -17,7 +17,9 @@ CREATE DATABASE uvv
     LC_CTYPE = 'en_US.UTF-8'
     CONNECTION LIMIT = -1;
 
-\c uvv
+--Conectando ao banco de dados
+\c uvv danielm;
+
 --Criação d schema elmasri e autorização para o usuário criado anteriormente.
 CREATE SCHEMA elmasri  AUTHORIZATION danielm;
 
