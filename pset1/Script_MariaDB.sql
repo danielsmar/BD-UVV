@@ -1,4 +1,6 @@
 --Primeira Parte do Script
+/*Copie e cole essa primeira parte do Script 
+em seu terminal*/
 
 --Criando usuário do SGBD.
 create user danielm identified by '123456';
@@ -14,6 +16,8 @@ SYSTEM mysql -u danielm -p;
 
 
 --SEGUNDA PARTE DO SCRIPT
+/*Copie e cole a segunda parte do Script 
+em seu terminal*/
 
 -- Criando Tabela Funcionário.
 CREATE TABLE uvv.funcionario (
@@ -104,12 +108,6 @@ ALTER TABLE uvv.localizacoes_departamento COMMENT 'Tabela com informações das 
 
 --Crindo os relacionamentos entre as tabela.
 ALTER TABLE uvv.departamento ADD CONSTRAINT funcionario_departamento_fk
-FOREIGN KEY (cpf_gerente)
-REFERENCES uvv.funcionario (cpf)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
- 
-ALTER TABLE uvv.departamento ADD CONSTRAINT funcionario_departamento_fk1
 FOREIGN KEY (cpf_gerente)
 REFERENCES uvv.funcionario (cpf)
 ON DELETE NO ACTION
