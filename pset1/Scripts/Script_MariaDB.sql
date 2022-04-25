@@ -9,10 +9,6 @@ CREATE DATABASE uvv CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 --Concedendo todos privilégios ao usuário criado.
 grant all privileges on uvv.* to danielm; 
 
--- Entra com o usuário criado no SGBD.
-SYSTEM mysql -u danielm -p;
-
-
 --SEGUNDA PARTE DO SCRIPT
 
 -- Criando Tabela Funcionário.
