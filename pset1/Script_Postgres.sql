@@ -1,6 +1,7 @@
+--INÍCIO DO SCRIPT
 
-BEGIN;
 -- Criação do usuário para administrar o BD.
+BEGIN;
 CREATE USER danielm WITH PASSWORD '12345' CREATEDB;
 
 ALTER USER danielm PASSWORD null;
@@ -18,7 +19,7 @@ CREATE DATABASE uvv
     CONNECTION LIMIT = -1;
 
 \c uvv
---Criação d schema elmasri e autorização para o usuário criado anteriormente.
+--Criação do schema elmasri e autorização para o usuário criado anteriormente.
 CREATE SCHEMA elmasri  AUTHORIZATION danielm;
 
 --Tornando o Schema elmasri como padrão.
@@ -89,7 +90,7 @@ COMMENT ON COLUMN elmasri.departamento.nome_departamento IS 'Nome do departament
 COMMENT ON COLUMN elmasri.departamento.cpf_gerente IS 'CPF do gerente do departamento.';
 COMMENT ON COLUMN elmasri.departamento.data_inicio_gerente IS 'Data do início do gerente no departamento.';
 
---Criando Chave Única.
+--Criando Chave Alternativa.
 CREATE UNIQUE INDEX departamento_ak
  ON elmasri.departamento
  ( nome_departamento );
@@ -148,12 +149,6 @@ REFERENCES elmasri.funcionario (cpf)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
  
-ALTER TABLE elmasri.departamento ADD CONSTRAINT funcionario_departamento_fk1
-FOREIGN KEY (cpf_gerente)
-REFERENCES elmasri.funcionario (cpf)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
-
 ALTER TABLE elmasri.dependente ADD CONSTRAINT funcionario_dependente_fk
 FOREIGN KEY (cpf_funcionario)
 REFERENCES elmasri.funcionario (cpf)
