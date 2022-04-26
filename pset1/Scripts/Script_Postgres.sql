@@ -12,7 +12,6 @@ BEGIN;
 -- Criação do usuário para administrar o BD.
 CREATE USER danielm WITH PASSWORD '123456' CREATEDB;
 
-ALTER USER danielm PASSWORD null;
 COMMIT;
 
 -- Criação do Banco de dados
