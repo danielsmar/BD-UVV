@@ -1,3 +1,10 @@
+## Implementação no PostgreSQL
+O [PostgreSQL](https://www.postgresql.org) é o SGBD relacional open-source mais
+avançado que existe hoje em dia. Apesar dele ser mais “difícil” que usar do que o
+MariaBD/MySQL, ele é excelente para estudar e aprender sobre bancos de dados
+pois ele têm funcionalidades avançadas que não são encontradas em muitos SGBD
+comerciais.
+
 ## Execultando o Script do Postgres
 
 Execultar o Script
