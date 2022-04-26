@@ -1,4 +1,11 @@
---Primeira Parte do Script
+/*
+___________________________________________________________________________________________
+| Descrição     : Projeto Elmasri de banco de dados do livro "Sistemas de Banco de Dados",|
+|              : por Ramez Elmasri e Shamkant B. Navathe, 7ed.				  |
+|Autor         : Daniel Valadars Marculano.              				  |
+|Orientador    : prof. Abrantes Araújo S. Filho.  					  |
+|_________________________________________________________________________________________|
+*/
 
 --Criando usuário do SGBD.
 create user danielm identified by '123456';
@@ -8,8 +15,6 @@ CREATE DATABASE uvv CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 --Concedendo todos privilégios ao usuário criado.
 grant all privileges on uvv.* to danielm; 
-
---SEGUNDA PARTE DO SCRIPT
 
 -- Criando Tabela Funcionário.
 CREATE TABLE uvv.funcionario (
