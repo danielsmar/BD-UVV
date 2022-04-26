@@ -2,7 +2,7 @@
 ___________________________________________________________________________________________
 | Descrição     : Projeto Elmasri de banco de dados do livro "Sistemas de Banco de Dados",|
 |              : por Ramez Elmasri e Shamkant B. Navathe, 7ed.				  |
-|Autor         : Daniel Valadars Marculano.              				  |
+|Autor         : Daniel Valadares Marculano.              				  |
 |Orientador    : prof. Abrantes Araújo S. Filho.                                          |
 |SGBD          : PostgresSQL								  |
 |_________________________________________________________________________________________|
