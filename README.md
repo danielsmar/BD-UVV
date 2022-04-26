@@ -14,3 +14,7 @@ Este repositório contém projetos da disciplina de Banco de Dados I feito duran
 **Professor:** Abrantes Araújo Silva Filho
 
 **Disciplina:** Design e Desenvolvimento de Banco de Dados
+
+## O que é um pset?
+Um Problem Set (PSet) é um conjunto de problemas e tarefas difíceis (alguns extremamente
+difíceis) que o forçarão a estudar e realmente compreender a matéria1.
