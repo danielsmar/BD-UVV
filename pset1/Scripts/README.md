@@ -18,6 +18,10 @@ comerciais.
 
 #### 6. Após o login com o novo usuário o script vai ser execultado e criar o banco de dados.
 
+## Script para Postgres rodando na [Virtual Box dbserver](https://www.computacaoraiz.com.br/2022/03/17/maquina-virtual-para-o-estudo-de-sistemas-de-gerenciamento-de-bancos-de-dados-db-server/)
+
+<img align="center" alt="gif" height="290" style="border-radius:50px;" src="https://github.com/danielsmar/portfolio/blob/main/img/Pset_Postgres.gif">
+
 ## Implementação no MariaDB
 [MariaDB](https://mariadb.com) é baseado no MySQL e está disponível sob os termos da licença GPL v2.
 
@@ -43,3 +47,6 @@ Na maioria dos aspectos o MariaDB vai funcionar exatamente como o MySQL: todos o
 
 #### 6. Após execultar o script, o banco de dados sera criado.
 
+## Script para MariaDB rodando na [Virtual Box dbserver](https://www.computacaoraiz.com.br/2022/03/17/maquina-virtual-para-o-estudo-de-sistemas-de-gerenciamento-de-bancos-de-dados-db-server/)
+
+<img align="center" alt="gif" height="290" style="border-radius:50px;" src="https://github.com/danielsmar/portfolio/blob/main/img/Pset_MariaDB.gif">
