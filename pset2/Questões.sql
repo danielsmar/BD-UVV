@@ -1,13 +1,15 @@
 --PSET 2
 
 --questao 1
-SELECT numero_departamento, AVG(salario) AS media
+SELECT numero_departamento, 
+       AVG(salario) AS media
 FROM funcionario 
 GROUP BY numero_departamento
 order BY numero_departamento ;
 
 --questao 2
-SELECT sexo, AVG(salario) AS media
+SELECT sexo, 
+       AVG(salario) AS media
 FROM funcionario 
 GROUP BY sexo
 ORDER BY sexo ;
