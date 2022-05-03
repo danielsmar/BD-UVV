@@ -41,8 +41,8 @@ from funcionario f
 select
 	f.primeiro_nome || ' ' || f.nome_meio || ' ' || f.ultimo_nome as nome_completo,
 	f.salario,
-	d.nome_departamento
-	
+	d.nome_departamento,
+	(case when(f.cpf_supervisor = d.cpf_gerente)then f.primeiro_nome end) as nome_gerente
 	
 from
 	funcionario f
