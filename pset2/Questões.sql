@@ -51,3 +51,27 @@ from
 
 join departamento d on f.numero_departamento = d.numero_departamento 
 order by nome_departamento  asc,salario desc
+
+--questao 06
+select 
+	(case when(f.cpf = d.cpf_funcionario)then f.primeiro_nome || ' ' || f.nome_meio || ' ' || f.ultimo_nome end) as funcionario_com_dependente,
+    d2.nome_departamento as trabalha_no_departamento,
+    d.nome_dependente,
+    DATE_PART('year', current_date) - DATE_PART('year', d.data_nascimento) as idade,
+    (case when(d.sexo = 'M')then 'Masculino'
+    	  when(d.sexo = 'F')then 'Feminino'end) as sexo
+from 
+	funcionario f 
+join dependente d on f.cpf =d.cpf_funcionario 
+join departamento d2 on f.numero_departamento = d2.numero_departamento 	
+	
+--questao 07
+select 
+	 f.primeiro_nome||' '||f.nome_meio ||' '||f.ultimo_nome as nome_completo,
+	 f.salario,
+	 d.nome_departamento 
+from 
+	funcionario f 
+	
+join departamento d on f.numero_departamento =d.numero_departamento 
+where f.cpf not in (select d.cpf_funcionario from dependente d)
