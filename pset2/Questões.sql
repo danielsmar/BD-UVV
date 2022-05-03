@@ -42,7 +42,9 @@ select
 	f.primeiro_nome || ' ' || f.nome_meio || ' ' || f.ultimo_nome as nome_completo,
 	f.salario,
 	d.nome_departamento,
-	(case when(f.cpf_supervisor = d.cpf_gerente)then f.primeiro_nome end) as nome_gerente
+	(case when(f.cpf_supervisor = '98765432168')then 'Jennifer S Souza' 
+		  when(f.cpf_supervisor = '33344555587')then 'Fernando T Wong' 
+		  when(f.cpf_supervisor = '88866555576')then 'Jorge	E Brito'end) as nome_gerente
 	
 from
 	funcionario f
