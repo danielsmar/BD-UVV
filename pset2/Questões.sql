@@ -1,18 +1,18 @@
-PSET 2
+--PSET 2
 
-questao 1
+--questao 1
 SELECT numero_departamento, AVG(salario) AS media
 FROM funcionario 
 GROUP BY numero_departamento
 order BY numero_departamento ;
 
-questao 2
+--questao 2
 SELECT sexo, AVG(salario) AS media
 FROM funcionario 
 GROUP BY sexo
 ORDER BY sexo ;
 
-questao 3
+--questao 3
 select
 	f.primeiro_nome||' '||f.nome_meio ||' '||f.ultimo_nome,
 	f.data_nascimento,
@@ -25,7 +25,7 @@ from
 join departamento d on f.numero_departamento = d.numero_departamento 
 order by nome_departamento 
 
-questão 4
+--questão 4
 select
 	f.primeiro_nome||' '||f.nome_meio ||' '||f.ultimo_nome as nome_completo,
 	DATE_PART('year', current_date) - DATE_PART('year', f.data_nascimento) as idade,
