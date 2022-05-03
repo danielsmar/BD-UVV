@@ -75,3 +75,17 @@ from
 	
 join departamento d on f.numero_departamento =d.numero_departamento 
 where f.cpf not in (select d.cpf_funcionario from dependente d)
+
+
+--questao 08
+select 
+	f.primeiro_nome||' '||f.nome_meio ||' '||f.ultimo_nome as funcionario_responsavel,
+	d.nome_departamento as departamento_resposavel,
+	p.nome_projeto as projeto_trabalhado,
+	te.horas as horas_trabalhadas
+	
+from 
+	trabalha_em te 
+join projeto p on p.numero_projeto = te.numero_projeto 
+join funcionario f ON f.cpf =te.cpf_funcionario 
+join departamento d on f.numero_departamento =d.numero_departamento 
