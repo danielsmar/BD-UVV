@@ -6,7 +6,7 @@ Este PSet-2 depende totalmente do PSet-1 pois, agora, você devemos gerar divers
 relatórios SQL a partir dos dados que você inseriu no banco de dados criado no
 primeiro PSet.
 
-## Atenção: Os scripts desenvolvidos para esse pset foram feitos para serem utilizados no Postgres
+## Atenção: Os scripts desenvolvidos para esse pset foram feitos para serem utilizados no SGBD PostgresSQL.
 
 ## Questões:
 
