@@ -134,7 +134,52 @@ select
 from 
 	trabalha_em te 
 	
-join projeto p on p.numero_projeto = te.numero_projeto 
-join funcionario f on f.cpf =te.cpf_funcionario 
-join departamento d on f.numero_departamento =d.numero_departamento 
---where f.primeiro_nome  not in (select f.primeiro_nome from funcionario f2  )
+full join funcionario f on f.cpf =te.cpf_funcionario 
+full join departamento d on f.numero_departamento =d.numero_departamento 
+full join projeto p on p.numero_projeto = te.numero_projeto 
+order by f.primeiro_nome 
+
+
+--questao 13
+
+select 
+f.primeiro_nome||' '||f.nome_meio ||' '||f.ultimo_nome as Pessoas,
+DATE_PART('year', current_date) - DATE_PART('year', f.data_nascimento) as idade,
+(case when(f.sexo = 'M')then 'Masculino'
+    	  when(f.sexo = 'F')then 'Feminino'end) as sexo
+from 
+funcionario f 
+
+union
+
+select 
+d.nome_dependente,
+DATE_PART('year', current_date) - DATE_PART('year', d.data_nascimento) as idade,
+(case when(d.sexo = 'M')then 'Masculino'
+    	  when(d.sexo = 'F')then 'Feminino'end) as sexo
+from 
+dependente d 
+order by idade desc 
+
+--questao 14
+select 
+	d.nome_departamento,
+	count(f.numero_departamento)
+from 
+	departamento d 
+	
+join funcionario f on d.numero_departamento =f.numero_departamento 
+group by d.nome_departamento 
+
+--questao 15
+select
+	f.primeiro_nome||' '||f.nome_meio ||' '||f.ultimo_nome as nome_completo,
+	d.nome_departamento,
+	proj.nome_projeto
+	
+from
+	funcionario f
+full join trabalha_em te on	te.cpf_funcionario = f.cpf
+full join projeto proj on	proj.numero_projeto = te.numero_projeto
+join departamento d on	f.numero_departamento = d.numero_departamento
+order by f.primeiro_nome 
