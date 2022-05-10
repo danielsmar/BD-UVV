@@ -1,4 +1,12 @@
---PSET 2
+/*
+___________________________________________________________________________________________
+| Descrição    : Relatórios SQL a serem desenvolvidos do PSET 1                           |
+|              : por Ramez Elmasri e Shamkant B. Navathe, 7ed.				  |
+|Autor         : Daniel Valadares Marculano.              				  |
+|Orientador    : prof. Abrantes Araújo S. Filho.                                          |
+|SGBD          : PostgresSQL								  |
+|_________________________________________________________________________________________|
+*/
 
 --questao 1
 SELECT numero_departamento, 
